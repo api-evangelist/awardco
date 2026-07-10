@@ -1,0 +1,26 @@
+aid: awardco
+name: Awardco API Rate Limits
+url: https://code.awardco.com/api
+description: |
+  Awardco does not publish specific numeric rate limits for its public REST API
+  on the open web. The developer documentation and help center describe
+  API-key-based access and permission scoping, but do not state requests-per-second
+  or requests-per-minute ceilings, burst allowances, or throttling response
+  codes. Any concrete limits should be confirmed with Awardco directly or
+  observed against your own instance.
+documented: false
+knownControls:
+  - control: API key permissions
+    note: API keys are scoped to specific endpoints/permissions; sensitive operations (Create User, Reset User Password, Import Users) are meant to be granted sparingly. This is an authorization control, not a rate limit.
+  - control: Partner identification
+    note: Integration partners send an X-Partner-Id header so Awardco can identify and troubleshoot traffic from a given integration. Not a documented rate limit.
+publishedLimits: none-documented
+notes: |
+  Marked documented false intentionally - no public numeric rate limits were
+  found as of the review date. This file records the absence honestly rather
+  than fabricating limits.
+sources:
+  - url: https://code.awardco.com/api
+    type: Documentation
+  - url: https://awardco.my.site.com/Customerhelp/s/article/API-Key-Best-Practices-Tips
+    type: Documentation

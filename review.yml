@@ -1,0 +1,88 @@
+aid: awardco
+name: Awardco
+review:
+  question: Does Awardco expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Awardco's documented public surface is a
+    request/response REST API at https://api.awardco.com/api, authenticated with
+    a permission-scoped API key sent as a request header. Nothing in Awardco's
+    public developer documentation, help center, or integrations pages describes
+    a WebSocket (ws:// or wss://) or server-sent-events transport on Awardco's
+    own API. Awardco's real-time-feeling behavior is delivered through prebuilt
+    product integrations (Slack, Microsoft Teams, HRIS/SSO connectors) and
+    outbound flows, not a public server-push API, so there is no Awardco-owned
+    streaming transport to model.
+findings:
+  summary: |
+    Awardco does not publish a documented public WebSocket API. Awardco is an
+    all-in-one employee recognition, rewards, and engagement platform. It
+    exposes a documented public REST API at base https://api.awardco.com/api
+    (each method appended as /api/{method}), authenticated with an API key
+    passed as a request header. All responses are JSON and include a success
+    field; all timestamps are ISO 8601. The API is pure request/response REST
+    over HTTPS. No realtime, bidirectional, or streaming WebSocket endpoint is
+    documented anywhere in Awardco's developer docs (code.awardco.com/api), its
+    help center, or its integrations pages as of the review date.
+  accessModel: |
+    The API is documented and public in the sense that its conventions are
+    published at code.awardco.com/api, but it is NOT open self-serve. Using it
+    requires an Awardco account plus the API Key Management permission, and keys
+    are permission-scoped per endpoint. Integration partners additionally send
+    an X-Partner-Id header. Sensitive endpoints (Create User, Reset User
+    Password, Import Users) are meant to be granted sparingly. Awardco also
+    offers Awardco Connect for custom integrations and a catalog of prebuilt
+    HRIS, SSO/SAML, Slack, and Microsoft Teams connectors.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    Awardco's public documentation confirms the API's base URL, key-header
+    authentication, JSON/success response envelope, ISO 8601 timestamps, and
+    named capabilities (Create User, Import Users, Reset User Password,
+    recognize employees / award points, retrieve or schedule reports). It does
+    NOT publish exact per-method paths, request bodies, or response schemas on
+    the open web (the reference site is a single-page app that returns
+    "Authorization failed" without a key, and the Salesforce-hosted help
+    articles are gated). The API surfaces in apis.yml are therefore modeled
+    from Awardco's documentation and help center, not transcribed from a
+    released OpenAPI definition. No endpoints were fabricated beyond the named,
+    documented capabilities.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.awardco.com/api
+      documented: true
+      note: Public REST API. Method appended as /api/{method}. API key in a request header; JSON responses with a success flag; ISO 8601 timestamps.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Awardco's developer docs, help center, or integrations pages as of the review date.
+  websocketConfirmed: false
+sources:
+  - url: https://code.awardco.com/api
+    type: Documentation
+    note: Public API reference (Introduction). Base URL https://api.awardco.com/api, API-key header auth, JSON success envelope, ISO 8601 timestamps. SPA returns "Authorization failed" without a key. No WebSocket mentioned.
+  - url: https://awardco.my.site.com/Customerhelp/s/article/Managing-API-Keys
+    type: Authentication
+    note: Creating and managing permission-scoped API keys; Create User, Reset User Password, and Import Users flagged as sensitive. Salesforce-hosted, gated.
+  - url: https://www.awardco.com/platform/integrations
+    type: Documentation
+    note: Open API integrations, Awardco Connect for custom flows, prebuilt HRIS/SSO/Slack/Teams connectors, and reporting exportable to CSV or scheduled via REST API.
+  - url: https://www.awardco.com/platform/overview
+    type: WebPage
+    note: Product overview - recognition, rewards (Amazon Business, gift cards), engagement, service awards on one platform.
+  - url: https://www.awardco.com/plans
+    type: Plans
+    note: Named plan tiers (Standard, Scale, Enterprise, Service Awards Only, Automated + 2); pricing quote-based; startups from $3,000.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Awardco's own API, which is
+    request/response REST. No AsyncAPI document was created because there is no
+    documented server-push transport on Awardco's public API to model. The
+    apis.yml catalogs the documented REST surfaces (Users, Recognition, Points
+    and Awards, Reporting) with endpointsModeled true, since Awardco does not
+    publish per-method paths or schemas on the open web.

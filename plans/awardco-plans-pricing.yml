@@ -1,0 +1,52 @@
+aid: awardco
+name: Awardco Plans and Pricing
+url: https://www.awardco.com/plans
+description: |
+  Awardco pricing is primarily quote-based. Awardco publishes named plan tiers
+  but does not disclose per-user pricing or platform fees on its public site;
+  organizations request a demo or contact sales for a quote. One public data
+  point exists for smaller organizations. The REST API and prebuilt integrations
+  are account features rather than a separately metered, publicly priced product.
+pricingModel: Quote-based / contact sales
+apiBilling: |
+  The Awardco public REST API is not sold or metered as a standalone product on
+  the public site. API access is an account capability governed by the API Key
+  Management permission within an Awardco plan; there is no published per-call or
+  per-seat API price. Rewards are funded separately via employee point balances
+  that redeem in Awardco's marketplace (Amazon Business, gift cards, swag,
+  service awards).
+plans:
+  - name: Standard
+    price: Contact sales for a quote
+    summary: Unlimited programs within two program types.
+  - name: Scale
+    price: Contact sales for a quote
+    summary: Unlimited programs within four program types.
+  - name: Enterprise
+    price: Contact sales for a quote
+    summary: Unlimited programs across any program type with the full feature set.
+  - name: Service Awards Only
+    price: Contact sales for a quote
+    summary: Scoped to service-award (milestone/anniversary) programs only.
+  - name: Automated + 2
+    price: Contact sales for a quote
+    summary: Entry-level plan with two active spot-recognition programs.
+  - name: Startup / Small Business
+    price: Flexible packages starting at $3,000
+    summary: For new startups and small businesses with 100 employees or fewer; contact sales for details.
+addOns:
+  - name: A-Pay
+    summary: Awardco payment card for redemptions.
+  - name: Company Store
+    summary: Branded swag storefront.
+  - name: Awardco Engage
+    summary: Employee engagement surveys and listening.
+notes: |
+  Plan names and the $3,000 startup starting point are taken from Awardco's
+  public plans page as of the review date. All other prices are quote-based and
+  not publicly disclosed; figures above should be confirmed with Awardco sales.
+sources:
+  - url: https://www.awardco.com/plans
+    type: Plans
+  - url: https://www.awardco.com/solutions/enterprise
+    type: WebPage

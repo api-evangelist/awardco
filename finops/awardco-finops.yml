@@ -1,0 +1,33 @@
+aid: awardco
+name: Awardco FinOps
+url: https://www.awardco.com/plans
+description: |
+  FinOps notes for Awardco. Awardco is a SaaS employee recognition and rewards
+  platform sold on quote-based commercial plans, with rewards funded separately
+  through employee point balances that redeem in a marketplace (Amazon Business,
+  gift cards, swag, service awards). The public REST API is an account capability,
+  not a separately metered or publicly priced product, so there is no per-call
+  API cost to forecast - the cost drivers are the platform subscription plus the
+  monetary value of points/rewards distributed.
+costModel: |
+  Two distinct cost centers. (1) Platform subscription - a quote-based Awardco
+  plan (Standard, Scale, Enterprise, Service Awards Only, Automated + 2), plus
+  optional add-ons (A-Pay, Company Store, Awardco Engage). (2) Rewards spend -
+  the funded value of points awarded and redeemed by employees. The API itself
+  carries no published usage-based fee.
+billingUnit: |
+  Subscription (quote-based, typically annual) for the platform; monetary value
+  of points/rewards for redemptions. No per-API-call metering is published.
+optimizationNotes:
+  - Model rewards spend (points funded and redeemed) separately from the platform subscription; the two scale differently.
+  - Scope API keys tightly to the minimum permissions needed; treat Create User, Reset User Password, and Import Users as sensitive.
+  - Use prebuilt HRIS/SSO connectors before building custom Awardco Connect integrations to reduce build and maintenance cost.
+  - Confirm plan tier and any per-user pricing with Awardco sales - per-seat and platform fees are not publicly disclosed.
+notes: |
+  No public per-call API pricing exists as of the review date; this file frames
+  Awardco cost around the subscription plus rewards spend rather than API usage.
+sources:
+  - url: https://www.awardco.com/plans
+    type: Plans
+  - url: https://code.awardco.com/api
+    type: Documentation

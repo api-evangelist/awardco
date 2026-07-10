@@ -1,0 +1,130 @@
+aid: awardco
+url: https://raw.githubusercontent.com/api-evangelist/awardco/refs/heads/main/apis.yml
+name: Awardco
+kind: company
+description: Awardco is an all-in-one employee recognition, rewards, and engagement
+  platform built around a global rewards marketplace that includes a native Amazon
+  Business integration, gift cards, service awards, and swag. Awardco exposes a
+  documented public REST API at https://api.awardco.com/api for administrators and
+  integration partners - callers authenticate with a permission-scoped API key
+  passed as a request header, all responses are JSON with a success flag, and all
+  timestamps are ISO 8601. The API is not open self-serve - it is gated behind an
+  Awardco account and the API Key Management permission, and partners additionally
+  send an X-Partner-Id header. Documented capabilities cover user provisioning
+  (create, import, reset password), recognizing employees and awarding points, and
+  retrieving or scheduling reports. Awardco also ships prebuilt HRIS, SSO/SAML,
+  Slack, and Microsoft Teams integrations plus Awardco Connect for custom flows.
+  Exact request and response schemas for individual methods are not published on
+  the open web, so the API surfaces below are modeled from Awardco's public
+  documentation and help center rather than a released OpenAPI definition.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Employee Recognition
+- Rewards
+- Engagement
+- HR Tech
+- Incentives
+- Points
+created: '2026-07-10'
+modified: '2026-07-10'
+specificationVersion: '0.19'
+apis:
+- aid: awardco:awardco-users-api
+  name: Awardco Users API
+  tags:
+  - Users
+  - Provisioning
+  - HRIS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://code.awardco.com/api
+  baseURL: https://api.awardco.com/api
+  properties:
+  - url: https://code.awardco.com/api
+    type: Documentation
+  - url: https://awardco.my.site.com/Customerhelp/s/article/Managing-API-Keys
+    type: Authentication
+  description: Provision and manage employees in an Awardco instance. Awardco's
+    public documentation names Create User, Import Users (bulk), and Reset User
+    Password endpoints, all flagged as sensitive and permission-scoped. Endpoints
+    are modeled from Awardco's help center rather than a released OpenAPI
+    definition (endpointsModeled true) - exact paths, request bodies, and
+    response schemas are not published on the open web.
+- aid: awardco:awardco-recognition-api
+  name: Awardco Recognition API
+  tags:
+  - Recognition
+  - Awards
+  - Employee Experience
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://code.awardco.com/api
+  baseURL: https://api.awardco.com/api
+  properties:
+  - url: https://code.awardco.com/api
+    type: Documentation
+  - url: https://awardco.my.site.com/Customerhelp/s/article/How-to-Recognize-and-Award-Points
+    type: Documentation
+  description: Programmatically recognize employees and issue recognition tied to
+    an organization's programs and values. Awardco documents that API keys with
+    the appropriate permission can recognize employees; the exact recognition
+    method path and payload are not published, so this surface is modeled
+    (endpointsModeled true) from Awardco's public documentation.
+- aid: awardco:awardco-points-api
+  name: Awardco Points and Awards API
+  tags:
+  - Points
+  - Balances
+  - Incentives
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://code.awardco.com/api
+  baseURL: https://api.awardco.com/api
+  properties:
+  - url: https://code.awardco.com/api
+    type: Documentation
+  - url: https://awardco.my.site.com/Customerhelp/s/article/How-to-Adjust-Awarded-Points
+    type: Documentation
+  description: Award, adjust, and reconcile employee point balances that fund
+    redemptions in Awardco's rewards marketplace (Amazon Business, gift cards,
+    swag, and service awards). Awarding and adjusting points are documented
+    administrative capabilities; the specific API method paths and schemas are
+    not public, so this surface is modeled (endpointsModeled true).
+- aid: awardco:awardco-reporting-api
+  name: Awardco Reporting API
+  tags:
+  - Reporting
+  - Exports
+  - Analytics
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://code.awardco.com/api
+  baseURL: https://api.awardco.com/api
+  properties:
+  - url: https://code.awardco.com/api
+    type: Documentation
+  - url: https://www.awardco.com/platform/integrations
+    type: Documentation
+  description: Retrieve reporting data and program activity over REST. Awardco
+    documents that reporting templates can be exported to CSV or scheduled to
+    send via its REST API, and that API keys can retrieve reports. Method paths
+    and response schemas are not published on the open web, so this surface is
+    modeled (endpointsModeled true).
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/awardco
+- type: Website
+  url: https://www.awardco.com
+- type: Documentation
+  url: https://code.awardco.com/api
+- type: Authentication
+  url: https://awardco.my.site.com/Customerhelp/s/article/Managing-API-Keys
+- type: Integrations
+  url: https://www.awardco.com/platform/integrations
+- type: Plans
+  url: plans/awardco-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/awardco-rate-limits.yml
+- type: FinOps
+  url: finops/awardco-finops.yml
+- url: https://www.awardco.com/blog
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
