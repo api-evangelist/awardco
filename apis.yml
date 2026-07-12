@@ -107,6 +107,8 @@ apis:
     and response schemas are not published on the open web, so this surface is
     modeled (endpointsModeled true).
 common:
+- type: DomainSecurity
+  url: security/awardco-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/awardco
 - type: Website
