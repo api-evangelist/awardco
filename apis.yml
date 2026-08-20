@@ -44,6 +44,10 @@ apis:
 - aid: awardco:awardco-users-api
   name: Awardco Users API
   tags:
+  - User
+  - Provisioning
+  - HRIS
+  tags_raw:
   - Users
   - Provisioning
   - HRIS
@@ -102,6 +106,10 @@ apis:
 - aid: awardco:awardco-reporting-api
   name: Awardco Reporting API
   tags:
+  - Reporting
+  - Export
+  - Analytics
+  tags_raw:
   - Reporting
   - Exports
   - Analytics
