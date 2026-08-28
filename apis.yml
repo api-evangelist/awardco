@@ -17,6 +17,17 @@ description: Awardco is an all-in-one employee recognition, rewards, and engagem
   Exact request and response schemas for individual methods are not published on
   the open web, so the API surfaces below are modeled from Awardco's public
   documentation and help center rather than a released OpenAPI definition.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: approval
