@@ -48,6 +48,7 @@ tags:
 - Human Resources
 - Incentives
 - Points
+- Loyalty & Incentives
 tags_raw:
 - Employee Recognition
 - Rewards
@@ -55,11 +56,13 @@ tags_raw:
 - HR Tech
 - Incentives
 - Points
+- Loyalty & Incentives
 created: '2026-07-10'
 modified: '2026-07-10'
 specificationVersion: '0.23'
 apis:
 - aid: awardco:awardco-users-api
+  endpointsModeled: true
   name: Awardco Users API
   tags:
   - User
@@ -84,6 +87,7 @@ apis:
     definition (endpointsModeled true) - exact paths, request bodies, and
     response schemas are not published on the open web.
 - aid: awardco:awardco-recognition-api
+  endpointsModeled: true
   name: Awardco Recognition API
   tags:
   - Recognition
@@ -103,6 +107,7 @@ apis:
     method path and payload are not published, so this surface is modeled
     (endpointsModeled true) from Awardco's public documentation.
 - aid: awardco:awardco-points-api
+  endpointsModeled: true
   name: Awardco Points and Awards API
   tags:
   - Points
@@ -122,6 +127,7 @@ apis:
     administrative capabilities; the specific API method paths and schemas are
     not public, so this surface is modeled (endpointsModeled true).
 - aid: awardco:awardco-reporting-api
+  endpointsModeled: true
   name: Awardco Reporting API
   tags:
   - Reporting
