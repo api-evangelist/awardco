@@ -1,4 +1,4 @@
-# Awardco (awardco)
+# Awardco
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,89 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Awardco is an all-in-one employee recognition, rewards, and engagement platform built around a global rewards marketplace that includes a native Amazon Business integration, gift cards, service awards, and swag. It lets organizations recognize contributions, fund and redeem employee points, run milestone/service-award programs, and gather engagement signals from a single system.
+Awardco is an all-in-one employee recognition, rewards, and engagement platform built around a global rewards marketplace that includes a native Amazon Business integration, gift cards, service awards, and swag. Awardco exposes a documented public REST API at https://api.awardco.com/api for administrators and integration partners - callers authenticate with a permission-scoped API key passed as a request header, all responses are JSON with a success flag, and all timestamps are ISO 8601. The API is not open self-serve - it is gated behind an Awardco account and the API Key Management permission, and partners additionally send an X-Partner-Id header. Documented capabilities cover user provisioning (create, import, reset password), recognizing employees and awarding points, and retrieving or scheduling reports. Awardco also ships prebuilt HRIS, SSO/SAML, Slack, and Microsoft Teams integrations plus Awardco Connect for custom flows. Exact request and response schemas for individual methods are not published on the open web, so the API surfaces below are modeled from Awardco's public documentation and help center rather than a released OpenAPI definition.
 
-Awardco exposes a **documented public REST API** at `https://api.awardco.com/api` (each method appended as `/api/{method}`). Callers authenticate with a **permission-scoped API key** passed as a request header, all responses are JSON with a `success` flag, and all timestamps are ISO 8601.
+**Areas:** Employee Recognition · Rewards · Engagement · Human Resources · Incentives · Points · Loyalty & Incentives
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/awardco/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/awardco/refs/heads/main/apis.yml)
+## Awardco on APIs.io
 
-## Access model (read this first)
+Everything profiled for Awardco is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/awardco/](https://apis.io/providers/awardco/)** — or go straight to one of the APIs or properties below.
 
-The API is documented and public in the sense that its conventions are published at [code.awardco.com/api](https://code.awardco.com/api), but it is **not open self-serve**:
+### APIs (4)
 
-- Using it requires an **Awardco account** plus the **API Key Management** permission.
-- API keys are **scoped per endpoint** - you grant only the operations an integration needs.
-- **Sensitive** endpoints (Create User, Reset User Password, Import Users) are meant to be granted sparingly.
-- Integration **partners** additionally send an `X-Partner-Id` header for identification and troubleshooting.
-- For custom flows beyond the prebuilt connectors, Awardco offers **Awardco Connect**, alongside prebuilt **HRIS, SSO/SAML, Slack, and Microsoft Teams** integrations.
+- [Awardco Users API](https://apis.io/apis/awardco/awardco-users-api/) — Provision and manage employees in an Awardco instance. Awardco's public documentation names Create User, Import Users (bulk), and Reset User Password…
+- [Awardco Recognition API](https://apis.io/apis/awardco/awardco-recognition-api/) — Programmatically recognize employees and issue recognition tied to an organization's programs and values. Awardco documents that API keys with the…
+- [Awardco Points and Awards API](https://apis.io/apis/awardco/awardco-points-api/) — Award, adjust, and reconcile employee point balances that fund redemptions in Awardco's rewards marketplace (Amazon Business, gift cards, swag, and service…
+- [Awardco Reporting API](https://apis.io/apis/awardco/awardco-reporting-api/) — Retrieve reporting data and program activity over REST. Awardco documents that reporting templates can be exported to CSV or scheduled to send via its REST…
 
-**Endpoints are modeled, not transcribed.** Awardco's public docs confirm the base URL, API-key header auth, the JSON/`success` response envelope, ISO 8601 timestamps, and named capabilities (create/import users, reset password, recognize employees / award points, retrieve or schedule reports). Awardco does **not** publish exact per-method paths, request bodies, or response schemas on the open web (the reference site is a single-page app that returns `Authorization failed` without a key, and the help articles are gated). The API surfaces below are therefore modeled from Awardco's documentation and help center - `endpointsModeled: true` - and no endpoints were fabricated beyond the documented capabilities. No OpenAPI, Postman collection, or WebSocket surface is included because none could be sourced.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Employee Recognition
-- Rewards
-- Engagement
-- HR Tech
-- Incentives
-- Points
+#### MCP servers (1)
 
-## Timestamps
+Model Context Protocol servers that expose the API to agents.
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+- [awardco](https://apis.io/servers/awardco/awardco/)
 
-## APIs
+#### Security (1)
 
-### Awardco Users API
+Authentication, trust centre, and vulnerability disclosure.
 
-Provision and manage employees in an Awardco instance. Awardco's public documentation names **Create User**, **Import Users** (bulk), and **Reset User Password** endpoints, all flagged as sensitive and permission-scoped. `endpointsModeled: true`.
+- [Awardco Domain Security](https://apis.io/security/awardco/awardco-domain-security/)
 
-- **Documentation:** [https://code.awardco.com/api](https://code.awardco.com/api)
-- **Base URL:** `https://api.awardco.com/api`
+#### Plans and pricing (1)
 
-### Awardco Recognition API
+Published plans, tiers and prices.
 
-Programmatically recognize employees and issue recognition tied to an organization's programs and values. Recognizing employees is a documented capability of API keys with the appropriate permission; the exact method path and payload are not published, so this surface is modeled. `endpointsModeled: true`.
+- [Awardco Plans Pricing](https://apis.io/plans/awardco/awardco-plans-pricing/)
 
-- **Documentation:** [https://code.awardco.com/api](https://code.awardco.com/api)
-- **Base URL:** `https://api.awardco.com/api`
+#### Rate limits (1)
 
-### Awardco Points and Awards API
+Published request limits.
 
-Award, adjust, and reconcile employee point balances that fund redemptions in Awardco's rewards marketplace (Amazon Business, gift cards, swag, service awards). Awarding and adjusting points are documented administrative capabilities; specific method paths and schemas are not public. `endpointsModeled: true`.
+- [Awardco Rate Limits](https://apis.io/rate-limits/awardco/awardco-rate-limits/)
 
-- **Documentation:** [https://code.awardco.com/api](https://code.awardco.com/api)
-- **Base URL:** `https://api.awardco.com/api`
+#### FinOps (1)
 
-### Awardco Reporting API
+What the API costs to run, by operation.
 
-Retrieve reporting data and program activity over REST. Awardco documents that reporting templates can be exported to CSV or scheduled to send via its REST API, and that API keys can retrieve reports. Method paths and response schemas are not published. `endpointsModeled: true`.
+- [Awardco Finops](https://apis.io/finops/awardco/awardco-finops/)
 
-- **Documentation:** [https://code.awardco.com/api](https://code.awardco.com/api)
-- **Base URL:** `https://api.awardco.com/api`
+## Where to find this API
 
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [LinkedIn](https://www.linkedin.com/company/awardco)
 - [Website](https://www.awardco.com)
 - [Documentation](https://code.awardco.com/api)
-- [Authentication / API Keys](https://awardco.my.site.com/Customerhelp/s/article/Managing-API-Keys)
-- [Integrations](https://www.awardco.com/platform/integrations)
-- [Plans](plans/awardco-plans-pricing.yml)
-- [Rate Limits](rate-limits/awardco-rate-limits.yml)
-- [Fin Ops](finops/awardco-finops.yml)
 - [Blog](https://www.awardco.com/blog)
 
-## Pricing
+## API Evangelist rating
 
-Awardco pricing is **quote-based**. Public plan tiers are Standard, Scale, Enterprise, Service Awards Only, and Automated + 2, plus add-ons (A-Pay, Company Store, Awardco Engage). Per-user and platform fees are not publicly disclosed; startups and small businesses (100 employees or fewer) can get flexible packages **starting at $3,000**. The API is an account capability, not a separately metered product. See [plans/awardco-plans-pricing.yml](plans/awardco-plans-pricing.yml).
+**Kin Score 11.4** — emerging · rubric 0.25.0 · scored 2026-10-23
 
-## WebSocket
+| Facet | Score |
+|---|---|
+| Discoverability | 73.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 17.9 |
+| Access clarity | 7.9 |
 
-**No.** Awardco does not publish a documented public WebSocket API. Its own API is request/response REST over HTTPS. See [review.yml](review.yml).
+**Agent readiness 15.4** — agent-aware
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Regulatory alignment 11.8** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/awardco/](https://apis.io/providers/awardco/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Awardco: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/awardco/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
